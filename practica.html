@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ventas equipos moviles y Generador de Cuentos</title>
+    <style>
+
+
+        body1 {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+
+        form {
+
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            padding: 30px;
+            margin: auto;
+            margin-top: 100px;
+            border-radius: 4px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: rgb(20, 6, 6);
+
+        }
+
+
+        .form-register h4{
+            font-size: 22px;
+            margin-bottom: 20px;
+
+        }
+
+        
+        label {
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            margin-bottom: 40px;
+            padding: 8px;
+            border: 10px solid #b30911db;
+            border-radius: 10px;
+        }
+        input[type="submit"] {
+            background-color: #be151d;
+            color: rgb(227, 15, 15);
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #e40e12;
+        }
+
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif; /* Cambié a tipografía Helvetica */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #824ec1;
+            background-position: 25% 75%; /* Centra la imagen de fondo */
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            
+            background-image: url('https://www.gestores.net/img/noticias/gsq5ab7h87zggiernhdwob9lfhjmg2/F0000005476_asistencia_telefonica_aeat.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 3s ease-in-out; /* Animación de zoom para el encabezado */
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); 
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 4em;
+            color: #ff0000;
+            z-index: 1;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            animation: slideDown 2s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.5em;
+            color: #fff;
+            z-index: 1;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        /* Estilo del menú de navegación */
+        nav {
+            background-color: #202020;
+            padding: 15px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInNav 1.5s ease-in-out;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff0000;
+            color: #fff;
+            animation: pulse 0.5s;
+        }
+
+        /* Estilo general del contenido */
+        .content {
+            text-align: center;
+            margin: 40px;
+            opacity: 0;
+            animation: fadeInContent 2s ease-in-out forwards; /* Animación de entrada */
+        }
+
+        .content h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+            animation: slideUp 1.5s ease-in-out;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 800px;
+            margin: auto;
+            animation: slideUp 2s ease-in-out;
+        }
+
+        /* Sección de servicios */
+        .services {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInServices 2.5s ease-in-out forwards;
+        }
+
+        .service-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            margin: 10px;
+            animation: fadeIn 2s ease-in-out;
+            transition: transform 0.3s ease;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-box h3 {
+            color: #ff0000;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            animation: bounce 1.5s ease;
+        }
+
+        .service-box p {
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        /* Sección de contacto */
+        .contact {
+            background-color: #202020;
+            color: white;
+            padding: 40px 20px;
+            opacity: 0;
+            animation: fadeInContact 3s ease-in-out forwards;
+        }
+
+        .contact h2 {
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .contact a {
+            color: #ff0000;
+            text-decoration: none;
+        }
+
+        /* Botón de cotización */
+        .cta-button {
+            background-color: #ff0000;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .cta-button:hover {
+            background-color: #d40000;
+            animation: pulse 0.5s;
+            transform: scale(1.05);
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        label {
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            margin-bottom: 15px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #e31616;
+            color: white;
+            border: none;
+            padding: 30px;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #e01313;
+        }
+
+        /* Google Map */
+        .map {
+            width: 100%;
+            height: 350px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(1.1); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeInNav {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInContent {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInServices {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInContact {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        label {
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            margin-bottom: 15px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #d81b2b;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #e71717;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            margin-bottom: 15px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #c61010;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #e21616;
+        }
+    </style>
+</head>
+<body>
+
+    <body>
+
+  
+
+        <!-- Encabezado con animación de zoom y overlay -->
+        <header>
+            <h1>alex moviles </h1>
+            <p>Los mejores equipos móviles para ti</p>
+        </header>
+        
+        <!-- Menú de navegación -->
+        <nav>
+            <ul>
+                <li><a href="#Nuestra Tienda On-line">tienda online</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#cotizacion">Cotización</a></li>
+                <li><a href="#Diseña Tu Cuento">Diseña Tu Cuento</a></li>
+            </ul>
+        </nav>
+        
+        <section class="content" id="tienda online">
+            <h1><li>Nuestra Tienda On-line</h1></li>
+            <div class="Nuestra Tienda On-line">
+                <div class="Nuestra Tienda On-line-box">
+                    <h3>integrante</h3>
+                    <p>alexander tabares monsalve</p>
+                    <img src="C:\Users\alexz\OneDrive\Desktop\explicacion\HTML\foto alex.jpeg" width="150" height="150">
+                </div>
+                
+        </section>
+        
+        <!-- Sección de servicios -->
+        <section class="content" id="servicios">
+            <h1><li>Nuestros Servicios</h1></li>
+            <div class="services">
+                <div class="service-box">
+                    <h3>Venta de Teléfonos</h3>
+                    <p>Encuentra los últimos modelos de smartphones a precios increíbles.</p>
+                    <img src="C:\Users\alexz\OneDrive\Desktop\explicacion\HTML\Captura de pantalla 2024-10-20 194136.png">
+                    </div>
+                <div class="service-box">
+                    <h3>Accesorios</h3>
+                    <p>Ofrecemos una amplia gama de accesorios para complementar tu equipo.</p>
+                    <img src="C:\Users\alexz\OneDrive\Desktop\explicacion\HTML\Captura de pantalla 2024-10-20 191551.png">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Sección de Cotización -->
+        <section class="content" id="cotizacion">
+            <h2>Solicitud de Cotización</h2>
+            <p>Solicita una cotización personalizada a través de nuestro WhatsApp.</p>
+            <a href="https://wa.me/+573154592328" target="_blank">
+                <button class="cta-button">Solicitar Cotización</button>
+            </a>
+        </section>
+        
+        <!-- Sección de contacto -->
+        <section class="contact" id="contacto">
+        
+            <h2>Contacto</h2>
+            <img src="C:\Users\alexz\OneDrive\Desktop\explicacion\HTML\foto alex.jpeg" width="150" height="150">
+            <p><li>Nombre:<a href="alexander tabares monsalve"> alexander Tabares Monsalve</a></p></li>
+            <p><li>Email: <a href="mailto:info@alexmovil.com">info@alexmovil.com</a></p></li>
+            <p><li>Teléfono: <a href="tel:+573154592328">+57 315 459 2328</a></p></li>
+            <p><li>Dirección: <a Calle 24 # 123, Medellín, Colombia >Calle 24 # 123, Medellín, Colombia </a> </p></li>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.059248738467!2d-75.57500428491097!3d6.247637195489337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44284db9e7d637%3A0xf002b7bdee262157!2sMedell%C3%ADn%2C%20Antioquia%2C%20Colombia!5e0!3m2!1ses!2sco!4v1635962066992!5m2!1ses!2sco" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+        
+
+        
+        
+        <div style="text-align: center;">
+            <h1>Formulario</h1>
+            <img src="C:\Users\alexz\OneDrive\Imágenes\istockphoto-882917690-612x612.jpg" width="200" height="200"/>
+        </div>
+        
+            
+       
+        <!-- Sección de diseña tu cuento -->
+        <section class="content" id="Diseña Tu Cuento">
+        
+            
+                
+            
+            <div style="text-align: center;">
+
+
+            <form id="form">
+        
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+            
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" required>
+            
+                <label for="apodo">Apodo:</label>
+                <input type="text" id="apodo" required>
+            
+                <label for="colorCabello">Color de Cabello:</label>
+                <input type="text" id="colorCabello" required>
+            
+                <label for="colorOjos">Color de Ojos:</label>
+                <input type="text" id="colorOjos" required>
+            
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" required>
+            
+                <label for="hobby">Hobby:</label>
+                <input type="text" id="hobby" required>
+            
+                <input type="submit" value="Generar Cuento">
+           
+        
+            </form>
+                
+        
+        </section>
+        
+           </div>
+        
+
+
+<script>
+    document.getElementById('form').onsubmit = function(event) {
+        event.preventDefault(); // Evitar el envío del formulario
+
+        // Obtener los valores ingresados
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        const apodo = document.getElementById('apodo').value;
+        const colorCabello = document.getElementById('colorCabello').value;
+        const colorOjos = document.getElementById('colorOjos').value;
+        const edad = document.getElementById('edad').value;
+        const hobby = document.getElementById('hobby').value;
+
+        // Generar el cuento
+        
+        const cuento = `
+            Habia  una vez un niño(a) llamado ${nombre} ${apellido}, conocido(a) como ${apodo}. 
+            Tenía el cabello ${colorCabello} y los ojos ${colorOjos}. 
+            A la edad de ${edad} años, disfrutaba de ${hobby} en su tiempo libre. 
+            Un día, ${nombre} decidió marchasrse en busca de nuevo horizontes. para asi poder cumplir sus sueños,al pasar el tiempo seguia con el el color de su cabello ${colorCabello} se caracterizaba por lo hermoso del color ${colorOjos}.de sus ojos ${apodo} como lo decian sus amigos.
+             despues de estar buscando sus sueños, se encuentra solo y desolado
+        `;
+    
+        // Redirigir a una nueva página con el cuento (puedes cambiar la URL a tu cuento)
+        
+        const newWindow = window.open();
+        newWindow.document.write('<h1>Cuento Generado</h1>');
+        newWindow.document.write('<p>' + cuento + '</p>');
+        newWindow.document.write('<button onclick="window.close()">Cerrar</button>');
+        newWindow.document.close();
+        
+
+        
+        
+    };
+</script>
+
+<img src=""C:\Users\alexz\OneDrive\Imágenes\istockphoto-882917690-612x612.jpg"">
+<!-- Pie de página -->
+<footer>
+    <p>&copy; 2024 AlexMovil - Creado por Alexander Tabares</p>
+</footer>
+
+</body>
+</html>
